@@ -2,7 +2,6 @@ package com.passManager.pass;
 
 import io.vertx.core.AbstractVerticle;
 import io.vertx.core.Promise;
-import io.vertx.core.http.HttpMethod;
 import io.vertx.ext.web.Router;
 import io.vertx.ext.web.RoutingContext;
 import io.vertx.ext.web.handler.BodyHandler;
@@ -19,6 +18,8 @@ public class PassManager extends AbstractVerticle {
     router.route("/get").handler(Storage::findPassword);
     router.route("/getAll").handler(Storage::listPasswords);
     router.route("/listIDs").handler(Storage::listIDs);
+    router.route("/delete").handler(Storage::deletePassword);
+    router.route("/update").handler(Storage::updatePassword);
 
     vertx.createHttpServer().requestHandler(router).listen(8888, http -> {
       if (http.succeeded()) {

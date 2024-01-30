@@ -1,6 +1,4 @@
 package com.passManager.pass;
-
-import io.vertx.core.json.Json;
 import io.vertx.core.json.JsonObject;
 
 public class Password {
